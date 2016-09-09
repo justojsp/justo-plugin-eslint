@@ -47,4 +47,22 @@ suite("#op()", function() {
       src: [path.join(DATA, "valid.js"), path.join(DATA, "invalid.js"), path.join(DATA, "invalid2.js")]
     }]).must.be.eq(2);
   });
+
+  suite("ext option", function() {
+    test("{ext: \".js\"}", function() {
+      op([{
+        ext: ".js",
+        src: DATA,
+        output: false
+      }]).must.be.eq(2);
+    });
+
+    test("{ext: [\".js\", \".jsx\"]}", function() {
+      op([{
+        ext: [".js", ".jsx"],
+        src: DATA,
+        output: false
+      }]).must.be.eq(3);
+    });
+  });
 })();

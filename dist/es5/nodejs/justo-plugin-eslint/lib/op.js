@@ -13,11 +13,15 @@ op;var _eslint = require("eslint");function op(params, console) {
   }
 
   if (!opts) opts = { src: [] };
+  if (!opts.ext) opts.ext = [".js"];
+  if (typeof opts.ext == "string") opts.ext = [opts.ext];
   if (typeof opts.src == "string") opts.src = [opts.src];
   if (!opts.src || opts.src.length === 0) throw new Error("src expected.");
 
 
-  cli = new _eslint.CLIEngine();
+  cli = new _eslint.CLIEngine({
+    extensions: opts.ext });
+
   rpt = cli.executeOnFiles(opts.src);
 
 

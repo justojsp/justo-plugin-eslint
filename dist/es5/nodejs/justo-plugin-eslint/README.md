@@ -25,6 +25,7 @@ eslint(jsOpts, opts) : number
 `opts`:
 
 - `src` (string or string[]). Source files to parse.
+- `ext` (string or string[]). Extensions to parse. Default: `.js`.
 - `output` (boolean):
   - `false`. Show nothing.
   - `true`. Show errors and warnings.
